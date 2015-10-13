@@ -1,0 +1,338 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application
+  Name="LightSwitchApplication.ProjectDashboard.ProjectDashboard" xmlns="http://schemas.microsoft.com/LightSwitch/2010/xaml/model">
+  <Application.Attributes>
+    <Partial />
+  </Application.Attributes>
+  <Screen
+    Name="BrowseProjects">
+    <Screen.Attributes>
+      <SaveChangesTo
+        EntityContainer="ProjectDataService" />
+    </Screen.Attributes>
+    <Screen.RootContentItem>
+      <ContentItem
+        Name="RootContentItem"
+        Kind="Screen"
+        View="Microsoft.LightSwitch.MobileWeb:Screen">
+        <ContentItem
+          Name="Tabs"
+          Kind="Group"
+          View="Microsoft.LightSwitch.MobileWeb:TabPages">
+          <ContentItem
+            Name="ProjectList"
+            Kind="Group">
+            <ContentItem
+              Name="Projects"
+              Kind="Collection"
+              DataType="CollectionView$Project"
+              View="Microsoft.LightSwitch.MobileWeb:List">
+              <ContentItem.Attributes>
+                <DisplayName
+                  Value="Projects" />
+              </ContentItem.Attributes>
+              <ContentItem.DataSource>
+                <ScreenExpressionTree>
+                  <ChainExpression>
+                    <MemberExpression
+                      Member="BrowseProjects/Properties[Projects]" />
+                  </ChainExpression>
+                </ScreenExpressionTree>
+              </ContentItem.DataSource>
+              <ContentItem
+                Name="rows"
+                Kind="Details"
+                DataType="Project"
+                View="Microsoft.LightSwitch.MobileWeb:GroupCustomControl">
+                <ContentItem.Attributes>
+                  <DisplayName
+                    Value="rows" />
+                </ContentItem.Attributes>
+                <ContentItem.DataSource>
+                  <ScreenExpressionTree>
+                    <ChainExpression />
+                  </ScreenExpressionTree>
+                </ContentItem.DataSource>
+                <ContentItem
+                  Name="JDEProjectId"
+                  Kind="Value"
+                  DataType=":String">
+                  <ContentItem.DataSource>
+                    <ScreenExpressionTree>
+                      <ChainExpression>
+                        <MemberExpression
+                          Member="Project/Properties[JDEProjectId]" />
+                      </ChainExpression>
+                    </ScreenExpressionTree>
+                  </ContentItem.DataSource>
+                  <ContentItem.PropertySources>
+                    <ControlPropertySource
+                      Property="Microsoft.LightSwitch.MobileWeb:RootControl/Properties[FontStyle]">
+                      <ScreenExpressionTree>
+                        <ChainExpression>
+                          <ConstantExpression
+                            Value="Large"
+                            ResultType=":String" />
+                        </ChainExpression>
+                      </ScreenExpressionTree>
+                    </ControlPropertySource>
+                  </ContentItem.PropertySources>
+                </ContentItem>
+                <ContentItem
+                  Name="ProjectName"
+                  Kind="Value"
+                  DataType=":String">
+                  <ContentItem.DataSource>
+                    <ScreenExpressionTree>
+                      <ChainExpression>
+                        <MemberExpression
+                          Member="Project/Properties[ProjectName]" />
+                      </ChainExpression>
+                    </ScreenExpressionTree>
+                  </ContentItem.DataSource>
+                  <ContentItem.PropertySources>
+                    <ControlPropertySource
+                      Property="Microsoft.LightSwitch.MobileWeb:RootControl/Properties[FontStyle]">
+                      <ScreenExpressionTree>
+                        <ChainExpression>
+                          <ConstantExpression
+                            Value="Small"
+                            ResultType=":String" />
+                        </ChainExpression>
+                      </ScreenExpressionTree>
+                    </ControlPropertySource>
+                  </ContentItem.PropertySources>
+                </ContentItem>
+                <ContentItem
+                  Name="Division"
+                  Kind="Value"
+                  DataType=":String?">
+                  <ContentItem.DataSource>
+                    <ScreenExpressionTree>
+                      <ChainExpression>
+                        <MemberExpression
+                          Member="Project/Properties[Division]" />
+                      </ChainExpression>
+                    </ScreenExpressionTree>
+                  </ContentItem.DataSource>
+                </ContentItem>
+                <ContentItem
+                  Name="Address1"
+                  Kind="Value"
+                  DataType=":String?">
+                  <ContentItem.DataSource>
+                    <ScreenExpressionTree>
+                      <ChainExpression>
+                        <MemberExpression
+                          Member="Project/Properties[Address1]" />
+                      </ChainExpression>
+                    </ScreenExpressionTree>
+                  </ContentItem.DataSource>
+                  <ContentItem.PropertySources>
+                    <ControlPropertySource
+                      Property="Microsoft.LightSwitch.MobileWeb:RootControl/Properties[FontStyle]">
+                      <ScreenExpressionTree>
+                        <ChainExpression>
+                          <ConstantExpression
+                            Value="Small"
+                            ResultType=":String" />
+                        </ChainExpression>
+                      </ScreenExpressionTree>
+                    </ControlPropertySource>
+                  </ContentItem.PropertySources>
+                </ContentItem>
+                <ContentItem
+                  Name="Address2"
+                  Kind="Value"
+                  DataType=":String?">
+                  <ContentItem.DataSource>
+                    <ScreenExpressionTree>
+                      <ChainExpression>
+                        <MemberExpression
+                          Member="Project/Properties[Address2]" />
+                      </ChainExpression>
+                    </ScreenExpressionTree>
+                  </ContentItem.DataSource>
+                </ContentItem>
+                <ContentItem
+                  Name="City"
+                  Kind="Value"
+                  DataType=":String?">
+                  <ContentItem.DataSource>
+                    <ScreenExpressionTree>
+                      <ChainExpression>
+                        <MemberExpression
+                          Member="Project/Properties[City]" />
+                      </ChainExpression>
+                    </ScreenExpressionTree>
+                  </ContentItem.DataSource>
+                </ContentItem>
+                <ContentItem
+                  Name="StateProvince"
+                  Kind="Value"
+                  DataType=":String?">
+                  <ContentItem.DataSource>
+                    <ScreenExpressionTree>
+                      <ChainExpression>
+                        <MemberExpression
+                          Member="Project/Properties[StateProvince]" />
+                      </ChainExpression>
+                    </ScreenExpressionTree>
+                  </ContentItem.DataSource>
+                </ContentItem>
+                <ContentItem
+                  Name="PostalCode"
+                  Kind="Value"
+                  DataType=":String?">
+                  <ContentItem.DataSource>
+                    <ScreenExpressionTree>
+                      <ChainExpression>
+                        <MemberExpression
+                          Member="Project/Properties[PostalCode]" />
+                      </ChainExpression>
+                    </ScreenExpressionTree>
+                  </ContentItem.DataSource>
+                </ContentItem>
+                <ContentItem.PropertySources>
+                  <ControlPropertySource
+                    Property="Microsoft.LightSwitch.MobileWeb:RootControl/Properties[WidthSizingMode]">
+                    <ScreenExpressionTree>
+                      <ChainExpression>
+                        <ConstantExpression
+                          Value="FitToContent"
+                          ResultType=":String" />
+                      </ChainExpression>
+                    </ScreenExpressionTree>
+                  </ControlPropertySource>
+                </ContentItem.PropertySources>
+              </ContentItem>
+              <ContentItem.PropertySources>
+                <ControlPropertySource
+                  Property="Microsoft.LightSwitch.MobileWeb:RootCollectionControl/Properties[ItemTap]">
+                  <ScreenExpressionTree>
+                    <ChainExpression>
+                      <MemberExpression
+                        Member="BrowseProjects/Properties[Projects]" />
+                      <CallExpression
+                        Target="viewSelected" />
+                    </ChainExpression>
+                  </ScreenExpressionTree>
+                </ControlPropertySource>
+              </ContentItem.PropertySources>
+            </ContentItem>
+            <ContentItem.CommandItems>
+              <ContentItem
+                Name="SearchProjects"
+                Kind="Command">
+                <ContentItem.Attributes>
+                  <DisplayName
+                    Value="Search" />
+                </ContentItem.Attributes>
+                <ContentItem.PropertySources>
+                  <ControlPropertySource
+                    Property="Microsoft.LightSwitch.MobileWeb:RootControl/Properties[Tap]">
+                    <ScreenExpressionTree>
+                      <ChainExpression>
+                        <MemberExpression
+                          Member="BrowseProjects/Properties[Projects]" />
+                        <CallExpression
+                          Target="showSearch" />
+                      </ChainExpression>
+                    </ScreenExpressionTree>
+                  </ControlPropertySource>
+                  <ControlPropertySource
+                    Property="Microsoft.LightSwitch.MobileWeb:RootCommand/Properties[Icon]">
+                    <ScreenExpressionTree>
+                      <ChainExpression>
+                        <ConstantExpression
+                          Value="msls-search"
+                          ResultType=":String" />
+                      </ChainExpression>
+                    </ScreenExpressionTree>
+                  </ControlPropertySource>
+                </ContentItem.PropertySources>
+              </ContentItem>
+            </ContentItem.CommandItems>
+          </ContentItem>
+          <ContentItem.PropertySources>
+            <ControlPropertySource
+              Property="Microsoft.LightSwitch.MobileWeb:RootControl/Properties[BrowseOnly]">
+              <ScreenExpressionTree>
+                <ChainExpression>
+                  <ConstantExpression
+                    Value="True"
+                    ResultType=":Boolean" />
+                </ChainExpression>
+              </ScreenExpressionTree>
+            </ControlPropertySource>
+          </ContentItem.PropertySources>
+        </ContentItem>
+        <ContentItem
+          Name="Popups"
+          Kind="Group"
+          View="Microsoft.LightSwitch.MobileWeb:DialogPages" />
+      </ContentItem>
+    </Screen.RootContentItem>
+    <Screen.Methods>
+      <ScreenMethod
+        Name="showTab">
+        <ScreenMethod.Attributes>
+          <DisplayMethodByDefault
+            Display="True" />
+          <Generated />
+        </ScreenMethod.Attributes>
+        <ScreenMethodParameter
+          Name="tabName"
+          ParameterType=":String" />
+      </ScreenMethod>
+      <ScreenMethod
+        Name="showDialog">
+        <ScreenMethod.Attributes>
+          <DisplayMethodByDefault
+            Display="True" />
+          <Generated />
+        </ScreenMethod.Attributes>
+        <ScreenMethodParameter
+          Name="dialogName"
+          ParameterType=":String" />
+      </ScreenMethod>
+    </Screen.Methods>
+    <Screen.Properties>
+      <ScreenCollectionProperty
+        Name="Projects"
+        PageSize="45"
+        PropertyType="CollectionView$Project">
+        <ScreenCollectionProperty.Query>
+          <ScreenQueryDefinition
+            Name="ProjectsQuery"
+            ReturnType="Project*">
+            <ScreenQueryDefinition.FilterExpression>
+              <QueryFilterExpressionTree />
+            </ScreenQueryDefinition.FilterExpression>
+            <ScreenQueryDefinition.Source>
+              <QuerySourceExpressionTree>
+                <MemberExpression
+                  Member="ProjectDataService/Members[Projects]" />
+              </QuerySourceExpressionTree>
+            </ScreenQueryDefinition.Source>
+          </ScreenQueryDefinition>
+        </ScreenCollectionProperty.Query>
+        <ScreenExpressionTree>
+          <ChainExpression>
+            <CallExpression
+              Target="BrowseProjects/Properties[Projects]/Query" />
+          </ChainExpression>
+        </ScreenExpressionTree>
+      </ScreenCollectionProperty>
+    </Screen.Properties>
+  </Screen>
+  <Application.Methods>
+    <ApplicationMethod
+      Name="showBrowseProjects">
+      <ApplicationMethod.Attributes>
+        <ShowScreenMethod
+          TargetScreen="BrowseProjects" />
+      </ApplicationMethod.Attributes>
+    </ApplicationMethod>
+  </Application.Methods>
+</Application>

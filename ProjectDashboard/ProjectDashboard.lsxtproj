@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project MSBuildVersion="4.0" ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{bbd970c6-e5cc-490a-9136-ad17e402e223}</ProjectGuid>
+    <OutputType>WinEXE</OutputType>
+    <CopyBuildOutputToOutputDirectory>false</CopyBuildOutputToOutputDirectory>
+    <RootNamespace>ProjectDashboard</RootNamespace>
+    <AssemblyName>Microsoft.LightSwitch.Server.Host</AssemblyName>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <LightSwitchVersion>v5.0</LightSwitchVersion>
+    <LightSwitchProjectVersion>v4.7</LightSwitchProjectVersion>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">14.0</VisualStudioVersion>
+    <Name>ProjectDashboard</Name>
+    <LightSwitchProjectTypeV45>LightSwitch</LightSwitchProjectTypeV45>
+    <GenerateManifests>true</GenerateManifests>
+    <SignManifests>false</SignManifests>
+    <BaseIntermediateOutputPath>bin</BaseIntermediateOutputPath>
+    <ApplicationClientType>Desktop</ApplicationClientType>
+    <ApplicationServerType>LocalHost</ApplicationServerType>
+    <AuthenticationType>None</AuthenticationType>
+    <ApplicationName>ProjectDashboard</ApplicationName>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <ServiceDefinitionFile>ServiceDefinition.csdef</ServiceDefinitionFile>
+    <ServiceConfigurationFile>ServiceConfiguration.cscfg</ServiceConfigurationFile>
+    <SqlExpressInstanceName>(LocalDB)\MSSQLLocalDB</SqlExpressInstanceName>
+    <DefaultLanguage>en-US</DefaultLanguage>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <OutputPath>bin\Debug</OutputPath>
+    <UseDesignTimeFeatures>true</UseDesignTimeFeatures>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <OutputPath>bin\Release</OutputPath>
+    <UseDesignTimeFeatures>false</UseDesignTimeFeatures>
+  </PropertyGroup>
+  <ItemGroup>
+    <ServiceDefinition Include="ServiceDefinition.csdef">
+      <Visible>False</Visible>
+    </ServiceDefinition>
+    <ServiceConfiguration Include="ServiceConfiguration.cscfg">
+      <Visible>False</Visible>
+    </ServiceConfiguration>
+    <DiagnosticsConfiguration Include="diagnostics.wadcfg">
+      <Visible>False</Visible>
+    </DiagnosticsConfiguration>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.Common.targets" />
+  <ItemGroup>
+    <_BuildFile Include="$(LightSwitchSDKPath)\Server\vslshost.exe">
+      <SubFolder>
+      </SubFolder>
+      <PublishType>EntryPoint</PublishType>
+    </_BuildFile>
+    <_BuildFile Include="$(LightSwitchSDKPath)\Server\vslshost.exe.config">
+      <SubFolder>
+      </SubFolder>
+      <PublishType>Desktop</PublishType>
+    </_BuildFile>
+    <_BuildFile Include="$(LightSwitchSDKPath)\Server\vslshost.exe.manifest">
+      <SubFolder>
+      </SubFolder>
+      <PublishType>Exclude</PublishType>
+    </_BuildFile>
+    <_BuildFile Include="$(LightSwitchSDKPath)\Server\ClientAccessPolicy.xml">
+      <SubFolder>
+      </SubFolder>
+      <PublishType>Exclude</PublishType>
+    </_BuildFile>
+    <_BuildFile Include="$(LightSwitchSDKPath)\Server\Microsoft.LightSwitch.Design.svc">
+      <SubFolder>
+      </SubFolder>
+      <PublishType>Exclude</PublishType>
+    </_BuildFile>
+    <_BuildFile Include="$(LightSwitchSDKPath)\Server\Microsoft.LightSwitch.SecurityData.svc">
+      <SubFolder>
+      </SubFolder>
+      <PublishType>
+      </PublishType>
+    </_BuildFile>
+    <_BuildFile Include="ProjectDashboard.Server\web.config">
+      <SubFolder>
+      </SubFolder>
+      <PublishType>
+      </PublishType>
+    </_BuildFile>
+    <_BuildFile Include="ProjectDashboard.Server\default.aspx">
+      <SubFolder>
+      </SubFolder>
+      <PublishType>
+      </PublishType>
+    </_BuildFile>
+    <_BuildFile Include="diagnostics.wadcfg">
+      <SubFolder>bin</SubFolder>
+      <PublishType>
+      </PublishType>
+    </_BuildFile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="ProjectDashboard.ProjectDashboard\ProjectDashboard.ProjectDashboard.jsproj">
+      <Name>ProjectDashboard.ProjectDashboard</Name>
+      <Project>{bac4b542-1c82-46fb-8203-d8bb3aa9580b}</Project>
+      <Private>True</Private>
+      <Type>Client</Type>
+    </ProjectReference>
+    <ProjectReference Include="ProjectDashboard.Server\ProjectDashboard.Server.csproj">
+      <Name>ProjectDashboard.Server</Name>
+      <Project>{487fdf82-3b76-4ce2-9c67-233b96e06b1e}</Project>
+      <Private>True</Private>
+      <Type>Server</Type>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <LightSwitchExtension Include="Extensions\Microsoft.LightSwitch.Extensions.lspkg">
+      <ExtensionId>Microsoft.LightSwitch.Extensions</ExtensionId>
+      <Server>MICROSOFT.LIGHTSWITCH.EXTENSIONS.SERVER</Server>
+    </LightSwitchExtension>
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\LightSwitch\$(LightSwitchVersion)\Microsoft.LightSwitch.targets" />
+</Project>

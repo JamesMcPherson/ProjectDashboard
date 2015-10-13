@@ -1,0 +1,290 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application
+  Name="LightSwitchApplication.ProjectDashboard.ProjectDashboard" xmlns="http://schemas.microsoft.com/LightSwitch/2010/xaml/model">
+  <Application.Attributes>
+    <Partial />
+  </Application.Attributes>
+  <Screen
+    Name="AddEditMaintainSafetyIncidentRates">
+    <Screen.Attributes>
+      <SaveChangesTo
+        EntityContainer="ProjectDataService" />
+      <DisplayName
+        Value="Maintain Safety Incident Rate" />
+    </Screen.Attributes>
+    <Screen.RootContentItem>
+      <ContentItem
+        Name="RootContentItem"
+        Kind="Screen"
+        View="Microsoft.LightSwitch.MobileWeb:Screen">
+        <ContentItem
+          Name="Tabs"
+          Kind="Group"
+          View="Microsoft.LightSwitch.MobileWeb:TabPages">
+          <ContentItem
+            Name="Details"
+            Kind="Group"
+            View="Microsoft.LightSwitch.MobileWeb:RowsLayout">
+            <ContentItem.Attributes>
+              <DisplayName
+                Value="Details" />
+            </ContentItem.Attributes>
+            <ContentItem
+              Name="columns"
+              Kind="Details"
+              DataType="SafetyIncidentRate"
+              View="Microsoft.LightSwitch.MobileWeb:ColumnsLayout">
+              <ContentItem.Attributes>
+                <DisplayName
+                  Value="columns" />
+              </ContentItem.Attributes>
+              <ContentItem.DataSource>
+                <ScreenExpressionTree>
+                  <ChainExpression>
+                    <MemberExpression
+                      Member="AddEditMaintainSafetyIncidentRates/Properties[SafetyIncidentRate]" />
+                  </ChainExpression>
+                </ScreenExpressionTree>
+              </ContentItem.DataSource>
+              <ContentItem
+                Name="left"
+                Kind="Group">
+                <ContentItem
+                  Name="Project"
+                  Kind="Details"
+                  DataType="Project">
+                  <ContentItem.DataSource>
+                    <ScreenExpressionTree>
+                      <ChainExpression>
+                        <MemberExpression
+                          Member="SafetyIncidentRate/Properties[Project]" />
+                      </ChainExpression>
+                    </ScreenExpressionTree>
+                  </ContentItem.DataSource>
+                  <ContentItem
+                    Name="RowTemplate"
+                    Kind="Details"
+                    DataType="Project"
+                    View="Microsoft.LightSwitch.MobileWeb:ColumnsLayout">
+                    <ContentItem.DataSource>
+                      <ScreenExpressionTree>
+                        <ChainExpression />
+                      </ScreenExpressionTree>
+                    </ContentItem.DataSource>
+                    <ContentItem
+                      Name="JDEProjectId"
+                      Kind="Value"
+                      DataType=":String">
+                      <ContentItem.DataSource>
+                        <ScreenExpressionTree>
+                          <ChainExpression>
+                            <MemberExpression
+                              Member="Project/Properties[JDEProjectId]" />
+                          </ChainExpression>
+                        </ScreenExpressionTree>
+                      </ContentItem.DataSource>
+                    </ContentItem>
+                    <ContentItem
+                      Name="ProjectName"
+                      Kind="Value"
+                      DataType=":String">
+                      <ContentItem.DataSource>
+                        <ScreenExpressionTree>
+                          <ChainExpression>
+                            <MemberExpression
+                              Member="Project/Properties[ProjectName]" />
+                          </ChainExpression>
+                        </ScreenExpressionTree>
+                      </ContentItem.DataSource>
+                    </ContentItem>
+                  </ContentItem>
+                </ContentItem>
+                <ContentItem
+                  Name="PeriodMonth"
+                  Kind="Value"
+                  DataType=":Int32">
+                  <ContentItem.DataSource>
+                    <ScreenExpressionTree>
+                      <ChainExpression>
+                        <MemberExpression
+                          Member="SafetyIncidentRate/Properties[PeriodMonth]" />
+                      </ChainExpression>
+                    </ScreenExpressionTree>
+                  </ContentItem.DataSource>
+                </ContentItem>
+                <ContentItem
+                  Name="PeriodYear"
+                  Kind="Value"
+                  DataType=":Int32">
+                  <ContentItem.DataSource>
+                    <ScreenExpressionTree>
+                      <ChainExpression>
+                        <MemberExpression
+                          Member="SafetyIncidentRate/Properties[PeriodYear]" />
+                      </ChainExpression>
+                    </ScreenExpressionTree>
+                  </ContentItem.DataSource>
+                </ContentItem>
+                <ContentItem
+                  Name="RecordableIncidents"
+                  Kind="Value"
+                  DataType=":Int32?">
+                  <ContentItem.DataSource>
+                    <ScreenExpressionTree>
+                      <ChainExpression>
+                        <MemberExpression
+                          Member="SafetyIncidentRate/Properties[RecordableIncidents]" />
+                      </ChainExpression>
+                    </ScreenExpressionTree>
+                  </ContentItem.DataSource>
+                </ContentItem>
+                <ContentItem
+                  Name="LossTime"
+                  Kind="Value"
+                  DataType=":Int32?">
+                  <ContentItem.DataSource>
+                    <ScreenExpressionTree>
+                      <ChainExpression>
+                        <MemberExpression
+                          Member="SafetyIncidentRate/Properties[LossTime]" />
+                      </ChainExpression>
+                    </ScreenExpressionTree>
+                  </ContentItem.DataSource>
+                </ContentItem>
+                <ContentItem
+                  Name="ManHours"
+                  Kind="Value"
+                  DataType=":Int32?">
+                  <ContentItem.DataSource>
+                    <ScreenExpressionTree>
+                      <ChainExpression>
+                        <MemberExpression
+                          Member="SafetyIncidentRate/Properties[ManHours]" />
+                      </ChainExpression>
+                    </ScreenExpressionTree>
+                  </ContentItem.DataSource>
+                </ContentItem>
+                <ContentItem.PropertySources>
+                  <ControlPropertySource
+                    Property="Microsoft.LightSwitch.MobileWeb:RootControl/Properties[MinWidth]">
+                    <ScreenExpressionTree>
+                      <ChainExpression>
+                        <ConstantExpression
+                          Value="200"
+                          ResultType=":Double" />
+                      </ChainExpression>
+                    </ScreenExpressionTree>
+                  </ControlPropertySource>
+                  <ControlPropertySource
+                    Property="Microsoft.LightSwitch.MobileWeb:RootControl/Properties[MaxWidth]">
+                    <ScreenExpressionTree>
+                      <ChainExpression>
+                        <ConstantExpression
+                          Value="400"
+                          ResultType=":Double" />
+                      </ChainExpression>
+                    </ScreenExpressionTree>
+                  </ControlPropertySource>
+                </ContentItem.PropertySources>
+              </ContentItem>
+            </ContentItem>
+            <ContentItem.CommandItems>
+              <ContentItem
+                Name="btnDelete"
+                Kind="Command">
+                <ContentItem.Attributes>
+                  <DisplayName
+                    Value="Delete" />
+                </ContentItem.Attributes>
+                <ContentItem.PropertySources>
+                  <ControlPropertySource
+                    Property="Microsoft.LightSwitch.MobileWeb:RootControl/Properties[Tap]">
+                    <ScreenExpressionTree>
+                      <ChainExpression>
+                        <CallExpression
+                          Target="AddEditMaintainSafetyIncidentRates/Methods[Delete]" />
+                      </ChainExpression>
+                    </ScreenExpressionTree>
+                  </ControlPropertySource>
+                </ContentItem.PropertySources>
+              </ContentItem>
+            </ContentItem.CommandItems>
+          </ContentItem>
+        </ContentItem>
+        <ContentItem
+          Name="Popups"
+          Kind="Group"
+          View="Microsoft.LightSwitch.MobileWeb:DialogPages" />
+        <ContentItem.PropertySources>
+          <ControlPropertySource
+            Property="Microsoft.LightSwitch.MobileWeb:Screen/Properties[ScreenType]">
+            <ScreenExpressionTree>
+              <ChainExpression>
+                <ConstantExpression
+                  Value="Edit"
+                  ResultType=":String" />
+              </ChainExpression>
+            </ScreenExpressionTree>
+          </ControlPropertySource>
+          <ControlPropertySource
+            Property="Microsoft.LightSwitch.MobileWeb:Screen/Properties[ShowAsDialog]">
+            <ScreenExpressionTree>
+              <ChainExpression>
+                <ConstantExpression
+                  Value="True"
+                  ResultType=":Boolean" />
+              </ChainExpression>
+            </ScreenExpressionTree>
+          </ControlPropertySource>
+        </ContentItem.PropertySources>
+      </ContentItem>
+    </Screen.RootContentItem>
+    <Screen.Methods>
+      <ScreenMethod
+        Name="showTab">
+        <ScreenMethod.Attributes>
+          <DisplayMethodByDefault
+            Display="True" />
+          <Generated />
+        </ScreenMethod.Attributes>
+        <ScreenMethodParameter
+          Name="tabName"
+          ParameterType=":String" />
+      </ScreenMethod>
+      <ScreenMethod
+        Name="showDialog">
+        <ScreenMethod.Attributes>
+          <DisplayMethodByDefault
+            Display="True" />
+          <Generated />
+        </ScreenMethod.Attributes>
+        <ScreenMethodParameter
+          Name="dialogName"
+          ParameterType=":String" />
+      </ScreenMethod>
+      <ScreenMethod
+        Name="Delete" />
+    </Screen.Methods>
+    <Screen.Properties>
+      <ScreenProperty
+        Name="SafetyIncidentRate"
+        PropertyType="SafetyIncidentRate">
+        <ScreenProperty.Attributes>
+          <IsParameter />
+        </ScreenProperty.Attributes>
+      </ScreenProperty>
+    </Screen.Properties>
+  </Screen>
+  <Application.Methods>
+    <ApplicationMethod
+      Name="showAddEditMaintainSafetyIncidentRates">
+      <ApplicationMethod.Attributes>
+        <ShowScreenMethod
+          TargetScreen="AddEditMaintainSafetyIncidentRates" />
+      </ApplicationMethod.Attributes>
+      <ApplicationMethodParameter
+        Name="SafetyIncidentRate"
+        ParameterType="SafetyIncidentRate" />
+    </ApplicationMethod>
+  </Application.Methods>
+</Application>

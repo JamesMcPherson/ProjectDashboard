@@ -1,0 +1,407 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ServiceApplication
+  Name="LightSwitchServiceApplication" xmlns="http://schemas.microsoft.com/LightSwitch/2010/xaml/model">
+  <ServiceApplication.Attributes>
+    <Partial />
+  </ServiceApplication.Attributes>
+  <EntityType
+    Name="SafetyIncidentRate">
+    <EntityType.Methods>
+      <EntityMethod
+        Name="Delete">
+        <EntityMethod.Attributes>
+          <Generated />
+        </EntityMethod.Attributes>
+      </EntityMethod>
+    </EntityType.Methods>
+    <EntityType.Properties>
+      <KeyProperty
+        Name="SafetyIncidentRateId"
+        IsReadOnly="True"
+        PropertyType=":Int32">
+        <KeyProperty.Attributes>
+          <Hidden />
+          <Required />
+          <NotSearchable />
+        </KeyProperty.Attributes>
+      </KeyProperty>
+      <EntityProperty
+        Name="ProjectId"
+        PropertyType=":Int32">
+        <EntityProperty.Attributes>
+          <Required />
+          <NotSearchable />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
+        Name="RecordableIncidents"
+        PropertyType=":Int32?">
+        <EntityProperty.Attributes>
+          <NotSearchable />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
+        Name="LossTime"
+        PropertyType=":Int32?">
+        <EntityProperty.Attributes>
+          <NotSearchable />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
+        Name="ManHours"
+        PropertyType=":Int32?">
+        <EntityProperty.Attributes>
+          <NotSearchable />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
+        Name="RIR"
+        IsReadOnly="True"
+        PropertyType=":Int32?">
+        <EntityProperty.Attributes>
+          <NotSearchable />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
+        Name="LTIR"
+        IsReadOnly="True"
+        PropertyType=":Int32?">
+        <EntityProperty.Attributes>
+          <NotSearchable />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
+        Name="CreatedDateTime"
+        PropertyType=":DateTimeOffset?">
+        <EntityProperty.Attributes>
+          <DateTimeConstraint
+            Precision="7"
+            PreserveSeconds="True" />
+          <NotSearchable />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
+        Name="CreatedBy"
+        PropertyType=":String">
+        <EntityProperty.Attributes>
+          <Required />
+          <MaxLength
+            Value="50" />
+          <AnsiConstraint />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
+        Name="UpdatedDateTime"
+        PropertyType=":DateTimeOffset?">
+        <EntityProperty.Attributes>
+          <DateTimeConstraint
+            Precision="7"
+            PreserveSeconds="True" />
+          <NotSearchable />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
+        Name="UpdatedBy"
+        PropertyType=":String">
+        <EntityProperty.Attributes>
+          <Required />
+          <MaxLength
+            Value="50" />
+          <AnsiConstraint />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <NavigationProperty
+        Name="Project"
+        Association="SafetyIncidentRate_Project"
+        FromEnd="SafetyIncidentRate"
+        ToEnd="Project" />
+      <EntityProperty
+        Name="PeriodMonth"
+        PropertyType=":Int32">
+        <EntityProperty.Attributes>
+          <Required />
+          <NotSearchable />
+          <SupportedValue
+            DisplayName="Jan"
+            Value="1" />
+          <SupportedValue
+            DisplayName="Feb"
+            Value="2" />
+          <SupportedValue
+            DisplayName="Mar"
+            Value="3" />
+          <SupportedValue
+            DisplayName="Apr"
+            Value="4" />
+          <SupportedValue
+            DisplayName="May"
+            Value="5" />
+          <SupportedValue
+            DisplayName="Jun"
+            Value="6" />
+          <SupportedValue
+            DisplayName="Jul"
+            Value="7" />
+          <SupportedValue
+            DisplayName="Aug"
+            Value="8" />
+          <SupportedValue
+            DisplayName="Sep"
+            Value="9" />
+          <SupportedValue
+            DisplayName="Oct"
+            Value="10" />
+          <SupportedValue
+            DisplayName="Nov"
+            Value="11" />
+          <SupportedValue
+            DisplayName="Dec"
+            Value="12" />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
+        Name="PeriodYear"
+        PropertyType=":Int32">
+        <EntityProperty.Attributes>
+          <Required />
+          <NotSearchable />
+          <SupportedValue
+            DisplayName="2014"
+            Value="2014" />
+          <SupportedValue
+            Value="2015" />
+          <SupportedValue
+            Value="2016" />
+          <SupportedValue
+            Value="2017" />
+          <SupportedValue
+            Value="2018" />
+          <SupportedValue
+            Value="2019" />
+          <SupportedValue
+            Value="2020" />
+          <SupportedValue
+            Value="2021" />
+          <SupportedValue
+            Value="2022" />
+          <SupportedValue
+            Value="2023" />
+          <SupportedValue
+            Value="2024" />
+          <SupportedValue
+            Value="2025" />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
+        Name="PeriodBeginDateTime"
+        IsReadOnly="True"
+        PropertyType=":DateTime?">
+        <EntityProperty.Attributes>
+          <DateTimeConstraint
+            Precision="3"
+            PreserveSeconds="True" />
+          <NotSearchable />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
+        Name="PeriodEndDateTime"
+        IsReadOnly="True"
+        PropertyType=":DateTime?">
+        <EntityProperty.Attributes>
+          <DateTimeConstraint
+            Precision="3"
+            PreserveSeconds="True" />
+          <NotSearchable />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+    </EntityType.Properties>
+  </EntityType>
+  <EntityContainer
+    Name="ProjectDataService">
+    <EntityContainer.Attributes>
+      <Partial />
+    </EntityContainer.Attributes>
+    <EntitySet
+      Name="SafetyIncidentRates"
+      CanDelete="True"
+      CanInsert="True"
+      CanUpdate="True"
+      EntityType="SafetyIncidentRate" />
+    <QueryOperation
+      Name="SafetyIncidentRates_Single"
+      ReturnType="SafetyIncidentRate">
+      <QueryOperation.Attributes>
+        <Generated />
+        <Description
+          Value="Returns the entity whose identity is specified by the parameter(s)." />
+      </QueryOperation.Attributes>
+      <QueryOperation.FilterExpression>
+        <QueryFilterExpressionTree>
+          <BinaryExpression
+            NodeType="Equal">
+            <BinaryExpression.Left>
+              <ChainExpression>
+                <MemberExpression
+                  Member="SafetyIncidentRateId" />
+              </ChainExpression>
+            </BinaryExpression.Left>
+            <BinaryExpression.Right>
+              <ParameterExpression
+                Parameter="SafetyIncidentRateId" />
+            </BinaryExpression.Right>
+          </BinaryExpression>
+        </QueryFilterExpressionTree>
+      </QueryOperation.FilterExpression>
+      <QueryOperation.Source>
+        <QuerySourceExpressionTree>
+          <MemberExpression
+            Member="SafetyIncidentRates" />
+        </QuerySourceExpressionTree>
+      </QueryOperation.Source>
+      <QueryOperationParameter
+        Name="SafetyIncidentRateId"
+        ParameterType="Microsoft.LightSwitch:Int32?">
+        <QueryOperationParameter.Attributes>
+          <Description
+            Value="The value of the 'SafetyIncidentRateId' key property of the entity to retrieve." />
+        </QueryOperationParameter.Attributes>
+      </QueryOperationParameter>
+    </QueryOperation>
+    <QueryOperation
+      Name="SafetyIncidentRates_SingleOrDefault"
+      ReturnType="SafetyIncidentRate">
+      <QueryOperation.Attributes>
+        <Generated />
+        <Description
+          Value="Returns the entity whose identity is specified by the parameter(s) or null if no such entity exists." />
+      </QueryOperation.Attributes>
+      <QueryOperation.FilterExpression>
+        <QueryFilterExpressionTree>
+          <BinaryExpression
+            NodeType="Equal">
+            <BinaryExpression.Left>
+              <ChainExpression>
+                <MemberExpression
+                  Member="SafetyIncidentRateId" />
+              </ChainExpression>
+            </BinaryExpression.Left>
+            <BinaryExpression.Right>
+              <ParameterExpression
+                Parameter="SafetyIncidentRateId" />
+            </BinaryExpression.Right>
+          </BinaryExpression>
+        </QueryFilterExpressionTree>
+      </QueryOperation.FilterExpression>
+      <QueryOperation.Source>
+        <QuerySourceExpressionTree>
+          <MemberExpression
+            Member="SafetyIncidentRates" />
+        </QuerySourceExpressionTree>
+      </QueryOperation.Source>
+      <QueryOperationParameter
+        Name="SafetyIncidentRateId"
+        ParameterType="Microsoft.LightSwitch:Int32?">
+        <QueryOperationParameter.Attributes>
+          <Description
+            Value="The value of the 'SafetyIncidentRateId' key property of the entity to retrieve." />
+        </QueryOperationParameter.Attributes>
+      </QueryOperationParameter>
+    </QueryOperation>
+  </EntityContainer>
+  <DataService
+    Name="ProjectDataServiceDataService">
+    <DataService.Attributes>
+      <Partial />
+    </DataService.Attributes>
+    <EntitySetMapping
+      EntitySet="SafetyIncidentRates">
+      <EntitySetMapping.Attributes>
+        <SsdlEntitySet
+          Schema="dbo"
+          Table="SafetyIncidentRate" />
+        <SsdlProperty
+          Name="SafetyIncidentRateId"
+          Nullable="False"
+          StoreGeneratedPattern="Identity"
+          Type="int"
+          Property="SafetyIncidentRate/Properties[SafetyIncidentRateId]" />
+        <SsdlProperty
+          Name="ProjectId"
+          Nullable="False"
+          Type="int"
+          Property="SafetyIncidentRate/Properties[ProjectId]" />
+        <SsdlProperty
+          Name="PeriodMonth"
+          Nullable="False"
+          Type="int"
+          Property="SafetyIncidentRate/Properties[PeriodMonth]" />
+        <SsdlProperty
+          Name="PeriodYear"
+          Nullable="False"
+          Type="int"
+          Property="SafetyIncidentRate/Properties[PeriodYear]" />
+        <SsdlProperty
+          Name="PeriodBeginDateTime"
+          Nullable="True"
+          StoreGeneratedPattern="Computed"
+          Type="datetime"
+          Property="SafetyIncidentRate/Properties[PeriodBeginDateTime]" />
+        <SsdlProperty
+          Name="PeriodEndDateTime"
+          Nullable="True"
+          StoreGeneratedPattern="Computed"
+          Type="datetime"
+          Property="SafetyIncidentRate/Properties[PeriodEndDateTime]" />
+        <SsdlProperty
+          Name="RecordableIncidents"
+          Nullable="True"
+          Type="int"
+          Property="SafetyIncidentRate/Properties[RecordableIncidents]" />
+        <SsdlProperty
+          Name="LossTime"
+          Nullable="True"
+          Type="int"
+          Property="SafetyIncidentRate/Properties[LossTime]" />
+        <SsdlProperty
+          Name="ManHours"
+          Nullable="True"
+          Type="int"
+          Property="SafetyIncidentRate/Properties[ManHours]" />
+        <SsdlProperty
+          Name="CreatedDateTime"
+          Nullable="True"
+          Type="datetimeoffset"
+          Property="SafetyIncidentRate/Properties[CreatedDateTime]" />
+        <SsdlProperty
+          MaxLength="50"
+          Name="CreatedBy"
+          Nullable="False"
+          Type="varchar"
+          Property="SafetyIncidentRate/Properties[CreatedBy]" />
+        <SsdlProperty
+          Name="UpdatedDateTime"
+          Nullable="True"
+          Type="datetimeoffset"
+          Property="SafetyIncidentRate/Properties[UpdatedDateTime]" />
+        <SsdlProperty
+          MaxLength="50"
+          Name="UpdatedBy"
+          Nullable="False"
+          Type="varchar"
+          Property="SafetyIncidentRate/Properties[UpdatedBy]" />
+        <SsdlProperty
+          Name="RIR"
+          Nullable="True"
+          StoreGeneratedPattern="Computed"
+          Type="int"
+          Property="SafetyIncidentRate/Properties[RIR]" />
+        <SsdlProperty
+          Name="LTIR"
+          Nullable="True"
+          StoreGeneratedPattern="Computed"
+          Type="int"
+          Property="SafetyIncidentRate/Properties[LTIR]" />
+      </EntitySetMapping.Attributes>
+    </EntitySetMapping>
+  </DataService>
+</ServiceApplication>

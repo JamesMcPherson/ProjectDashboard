@@ -1,0 +1,634 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application
+  Name="LightSwitchApplication.ProjectDashboard.ProjectDashboard" xmlns="http://schemas.microsoft.com/LightSwitch/2010/xaml/model">
+  <Application.Attributes>
+    <Partial />
+  </Application.Attributes>
+  <Screen
+    Name="ViewProjectDetails">
+    <Screen.Attributes>
+      <SaveChangesTo
+        EntityContainer="ProjectDataService" />
+    </Screen.Attributes>
+    <Screen.RootContentItem>
+      <ContentItem
+        Name="RootContentItem"
+        Kind="Screen"
+        View="Microsoft.LightSwitch.MobileWeb:Screen">
+        <ContentItem
+          Name="Tabs"
+          Kind="Group"
+          View="Microsoft.LightSwitch.MobileWeb:TabPages">
+          <ContentItem
+            Name="Details"
+            Kind="Group"
+            View="Microsoft.LightSwitch.MobileWeb:RowsLayout">
+            <ContentItem.Attributes>
+              <DisplayName
+                Value="Details" />
+            </ContentItem.Attributes>
+            <ContentItem
+              Name="columns"
+              Kind="Details"
+              DataType="Project"
+              View="Microsoft.LightSwitch.MobileWeb:ColumnsLayout">
+              <ContentItem.Attributes>
+                <DisplayName
+                  Value="columns" />
+              </ContentItem.Attributes>
+              <ContentItem.DataSource>
+                <ScreenExpressionTree>
+                  <ChainExpression>
+                    <MemberExpression
+                      Member="ViewProjectDetails/Properties[Project]" />
+                  </ChainExpression>
+                </ScreenExpressionTree>
+              </ContentItem.DataSource>
+              <ContentItem
+                Name="left"
+                Kind="Group"
+                View="Microsoft.LightSwitch.MobileWeb:RowsLayout">
+                <ContentItem
+                  Name="JDEProjectId"
+                  Kind="Value"
+                  DataType=":String">
+                  <ContentItem.DataSource>
+                    <ScreenExpressionTree>
+                      <ChainExpression>
+                        <MemberExpression
+                          Member="Project/Properties[JDEProjectId]" />
+                      </ChainExpression>
+                    </ScreenExpressionTree>
+                  </ContentItem.DataSource>
+                </ContentItem>
+                <ContentItem
+                  Name="ProjectName"
+                  Kind="Value"
+                  DataType=":String">
+                  <ContentItem.DataSource>
+                    <ScreenExpressionTree>
+                      <ChainExpression>
+                        <MemberExpression
+                          Member="Project/Properties[ProjectName]" />
+                      </ChainExpression>
+                    </ScreenExpressionTree>
+                  </ContentItem.DataSource>
+                </ContentItem>
+                <ContentItem
+                  Name="Address1"
+                  Kind="Value"
+                  DataType=":String?">
+                  <ContentItem.Attributes>
+                    <DisplayName
+                      Value="Address" />
+                  </ContentItem.Attributes>
+                  <ContentItem.DataSource>
+                    <ScreenExpressionTree>
+                      <ChainExpression>
+                        <MemberExpression
+                          Member="Project/Properties[Address1]" />
+                      </ChainExpression>
+                    </ScreenExpressionTree>
+                  </ContentItem.DataSource>
+                </ContentItem>
+                <ContentItem
+                  Name="Address2"
+                  IsHidden="True"
+                  Kind="Value"
+                  DataType=":String?">
+                  <ContentItem.DataSource>
+                    <ScreenExpressionTree>
+                      <ChainExpression>
+                        <MemberExpression
+                          Member="Project/Properties[Address2]" />
+                      </ChainExpression>
+                    </ScreenExpressionTree>
+                  </ContentItem.DataSource>
+                </ContentItem>
+                <ContentItem
+                  Name="City"
+                  IsHidden="True"
+                  Kind="Value"
+                  DataType=":String?">
+                  <ContentItem.DataSource>
+                    <ScreenExpressionTree>
+                      <ChainExpression>
+                        <MemberExpression
+                          Member="Project/Properties[City]" />
+                      </ChainExpression>
+                    </ScreenExpressionTree>
+                  </ContentItem.DataSource>
+                </ContentItem>
+                <ContentItem
+                  Name="County"
+                  IsHidden="True"
+                  Kind="Value"
+                  DataType=":String?">
+                  <ContentItem.DataSource>
+                    <ScreenExpressionTree>
+                      <ChainExpression>
+                        <MemberExpression
+                          Member="Project/Properties[County]" />
+                      </ChainExpression>
+                    </ScreenExpressionTree>
+                  </ContentItem.DataSource>
+                </ContentItem>
+                <ContentItem
+                  Name="PostalCode"
+                  IsHidden="True"
+                  Kind="Value"
+                  DataType=":String?">
+                  <ContentItem.DataSource>
+                    <ScreenExpressionTree>
+                      <ChainExpression>
+                        <MemberExpression
+                          Member="Project/Properties[PostalCode]" />
+                      </ChainExpression>
+                    </ScreenExpressionTree>
+                  </ContentItem.DataSource>
+                </ContentItem>
+                <ContentItem
+                  Name="Region"
+                  Kind="Value"
+                  DataType=":String?">
+                  <ContentItem.DataSource>
+                    <ScreenExpressionTree>
+                      <ChainExpression>
+                        <MemberExpression
+                          Member="Project/Properties[Region]" />
+                      </ChainExpression>
+                    </ScreenExpressionTree>
+                  </ContentItem.DataSource>
+                </ContentItem>
+                <ContentItem
+                  Name="StateProvince"
+                  IsHidden="True"
+                  Kind="Value"
+                  DataType=":String?">
+                  <ContentItem.DataSource>
+                    <ScreenExpressionTree>
+                      <ChainExpression>
+                        <MemberExpression
+                          Member="Project/Properties[StateProvince]" />
+                      </ChainExpression>
+                    </ScreenExpressionTree>
+                  </ContentItem.DataSource>
+                </ContentItem>
+                <ContentItem
+                  Name="Country"
+                  IsHidden="True"
+                  Kind="Value"
+                  DataType=":String?">
+                  <ContentItem.DataSource>
+                    <ScreenExpressionTree>
+                      <ChainExpression>
+                        <MemberExpression
+                          Member="Project/Properties[Country]" />
+                      </ChainExpression>
+                    </ScreenExpressionTree>
+                  </ContentItem.DataSource>
+                </ContentItem>
+                <ContentItem.PropertySources>
+                  <ControlPropertySource
+                    Property="Microsoft.LightSwitch.MobileWeb:RootControl/Properties[MinWidth]">
+                    <ScreenExpressionTree>
+                      <ChainExpression>
+                        <ConstantExpression
+                          Value="200"
+                          ResultType=":Double" />
+                      </ChainExpression>
+                    </ScreenExpressionTree>
+                  </ControlPropertySource>
+                  <ControlPropertySource
+                    Property="Microsoft.LightSwitch.MobileWeb:RootControl/Properties[MaxWidth]">
+                    <ScreenExpressionTree>
+                      <ChainExpression>
+                        <ConstantExpression
+                          Value="400"
+                          ResultType=":Double" />
+                      </ChainExpression>
+                    </ScreenExpressionTree>
+                  </ControlPropertySource>
+                </ContentItem.PropertySources>
+              </ContentItem>
+              <ContentItem
+                Name="right"
+                Kind="Group"
+                View="Microsoft.LightSwitch.MobileWeb:RowsLayout">
+                <ContentItem
+                  Name="OwnerType"
+                  Kind="Value"
+                  DataType=":String?">
+                  <ContentItem.DataSource>
+                    <ScreenExpressionTree>
+                      <ChainExpression>
+                        <MemberExpression
+                          Member="Project/Properties[OwnerType]" />
+                      </ChainExpression>
+                    </ScreenExpressionTree>
+                  </ContentItem.DataSource>
+                </ContentItem>
+                <ContentItem
+                  Name="FacilityType"
+                  Kind="Value"
+                  DataType=":String?">
+                  <ContentItem.DataSource>
+                    <ScreenExpressionTree>
+                      <ChainExpression>
+                        <MemberExpression
+                          Member="Project/Properties[FacilityType]" />
+                      </ChainExpression>
+                    </ScreenExpressionTree>
+                  </ContentItem.DataSource>
+                </ContentItem>
+                <ContentItem
+                  Name="DeliveryMethod"
+                  Kind="Value"
+                  DataType=":String?">
+                  <ContentItem.DataSource>
+                    <ScreenExpressionTree>
+                      <ChainExpression>
+                        <MemberExpression
+                          Member="Project/Properties[DeliveryMethod]" />
+                      </ChainExpression>
+                    </ScreenExpressionTree>
+                  </ContentItem.DataSource>
+                </ContentItem>
+                <ContentItem
+                  Name="Status"
+                  Kind="Value"
+                  DataType=":String?">
+                  <ContentItem.DataSource>
+                    <ScreenExpressionTree>
+                      <ChainExpression>
+                        <MemberExpression
+                          Member="Project/Properties[Status]" />
+                      </ChainExpression>
+                    </ScreenExpressionTree>
+                  </ContentItem.DataSource>
+                </ContentItem>
+                <ContentItem
+                  Name="Division"
+                  Kind="Value"
+                  DataType=":String?">
+                  <ContentItem.DataSource>
+                    <ScreenExpressionTree>
+                      <ChainExpression>
+                        <MemberExpression
+                          Member="Project/Properties[Division]" />
+                      </ChainExpression>
+                    </ScreenExpressionTree>
+                  </ContentItem.DataSource>
+                </ContentItem>
+                <ContentItem.PropertySources>
+                  <ControlPropertySource
+                    Property="Microsoft.LightSwitch.MobileWeb:RootControl/Properties[MinWidth]">
+                    <ScreenExpressionTree>
+                      <ChainExpression>
+                        <ConstantExpression
+                          Value="200"
+                          ResultType=":Double" />
+                      </ChainExpression>
+                    </ScreenExpressionTree>
+                  </ControlPropertySource>
+                  <ControlPropertySource
+                    Property="Microsoft.LightSwitch.MobileWeb:RootControl/Properties[MaxWidth]">
+                    <ScreenExpressionTree>
+                      <ChainExpression>
+                        <ConstantExpression
+                          Value="400"
+                          ResultType=":Double" />
+                      </ChainExpression>
+                    </ScreenExpressionTree>
+                  </ControlPropertySource>
+                </ContentItem.PropertySources>
+              </ContentItem>
+            </ContentItem>
+          </ContentItem>
+          <ContentItem
+            Name="SafetyIncidentRates"
+            Kind="Group"
+            View="Microsoft.LightSwitch.MobileWeb:RowsLayout">
+            <ContentItem.Attributes>
+              <DisplayName
+                Value="Incident Rates" />
+            </ContentItem.Attributes>
+            <ContentItem
+              Name="SafetyIncidentRates1"
+              Kind="Collection"
+              DataType="CollectionView$SafetyIncidentRate"
+              View="Microsoft.LightSwitch.MobileWeb:Table">
+              <ContentItem.Attributes>
+                <DisplayName
+                  Value="SafetyIncidentRates" />
+              </ContentItem.Attributes>
+              <ContentItem.DataSource>
+                <ScreenExpressionTree>
+                  <ChainExpression>
+                    <MemberExpression
+                      Member="ViewProjectDetails/Properties[SafetyIncidentRates]" />
+                  </ChainExpression>
+                </ScreenExpressionTree>
+              </ContentItem.DataSource>
+              <ContentItem
+                Name="rows"
+                Kind="Details"
+                DataType="SafetyIncidentRate"
+                View="Microsoft.LightSwitch.MobileWeb:RowsLayout">
+                <ContentItem.Attributes>
+                  <DisplayName
+                    Value="rows" />
+                </ContentItem.Attributes>
+                <ContentItem.DataSource>
+                  <ScreenExpressionTree>
+                    <ChainExpression />
+                  </ScreenExpressionTree>
+                </ContentItem.DataSource>
+                <ContentItem
+                  Name="Period"
+                  Kind="Value"
+                  DataType=":DateTime?">
+                  <ContentItem.Attributes>
+                    <DisplayName
+                      Value="Period" />
+                  </ContentItem.Attributes>
+                  <ContentItem.DataSource>
+                    <ScreenExpressionTree>
+                      <ChainExpression>
+                        <MemberExpression
+                          Member="SafetyIncidentRate/Properties[PeriodBeginDateTime]" />
+                      </ChainExpression>
+                    </ScreenExpressionTree>
+                  </ContentItem.DataSource>
+                </ContentItem>
+                <ContentItem
+                  Name="RecordableIncidents"
+                  Kind="Value"
+                  DataType=":Int32?">
+                  <ContentItem.DataSource>
+                    <ScreenExpressionTree>
+                      <ChainExpression>
+                        <MemberExpression
+                          Member="SafetyIncidentRate/Properties[RecordableIncidents]" />
+                      </ChainExpression>
+                    </ScreenExpressionTree>
+                  </ContentItem.DataSource>
+                  <ContentItem.PropertySources>
+                    <ControlPropertySource
+                      Property="Microsoft.LightSwitch.MobileWeb:RootControl/Properties[FontStyle]">
+                      <ScreenExpressionTree>
+                        <ChainExpression>
+                          <ConstantExpression
+                            Value="Small"
+                            ResultType=":String" />
+                        </ChainExpression>
+                      </ScreenExpressionTree>
+                    </ControlPropertySource>
+                  </ContentItem.PropertySources>
+                </ContentItem>
+                <ContentItem
+                  Name="LossTime"
+                  Kind="Value"
+                  DataType=":Int32?">
+                  <ContentItem.DataSource>
+                    <ScreenExpressionTree>
+                      <ChainExpression>
+                        <MemberExpression
+                          Member="SafetyIncidentRate/Properties[LossTime]" />
+                      </ChainExpression>
+                    </ScreenExpressionTree>
+                  </ContentItem.DataSource>
+                </ContentItem>
+                <ContentItem
+                  Name="ManHours"
+                  Kind="Value"
+                  DataType=":Int32?">
+                  <ContentItem.DataSource>
+                    <ScreenExpressionTree>
+                      <ChainExpression>
+                        <MemberExpression
+                          Member="SafetyIncidentRate/Properties[ManHours]" />
+                      </ChainExpression>
+                    </ScreenExpressionTree>
+                  </ContentItem.DataSource>
+                </ContentItem>
+                <ContentItem
+                  Name="RIR"
+                  Kind="Value"
+                  DataType=":Int32?">
+                  <ContentItem.DataSource>
+                    <ScreenExpressionTree>
+                      <ChainExpression>
+                        <MemberExpression
+                          Member="SafetyIncidentRate/Properties[RIR]" />
+                      </ChainExpression>
+                    </ScreenExpressionTree>
+                  </ContentItem.DataSource>
+                </ContentItem>
+                <ContentItem
+                  Name="LTIR"
+                  Kind="Value"
+                  DataType=":Int32?">
+                  <ContentItem.DataSource>
+                    <ScreenExpressionTree>
+                      <ChainExpression>
+                        <MemberExpression
+                          Member="SafetyIncidentRate/Properties[LTIR]" />
+                      </ChainExpression>
+                    </ScreenExpressionTree>
+                  </ContentItem.DataSource>
+                </ContentItem>
+                <ContentItem.PropertySources>
+                  <ControlPropertySource
+                    Property="Microsoft.LightSwitch.MobileWeb:RootControl/Properties[WidthSizingMode]">
+                    <ScreenExpressionTree>
+                      <ChainExpression>
+                        <ConstantExpression
+                          Value="FitToContent"
+                          ResultType=":String" />
+                      </ChainExpression>
+                    </ScreenExpressionTree>
+                  </ControlPropertySource>
+                </ContentItem.PropertySources>
+              </ContentItem>
+              <ContentItem.PropertySources>
+                <ControlPropertySource
+                  Property="Microsoft.LightSwitch.MobileWeb:RootCollectionControl/Properties[ItemTap]">
+                  <ScreenExpressionTree>
+                    <ChainExpression>
+                      <CallExpression
+                        Target="!module/Methods[showAddEditSafetyIncidentRateFromProject]">
+                        <CallExpression.Attributes>
+                          <AssociatedCollection
+                            Collection="ViewProjectDetails/Properties[SafetyIncidentRates]" />
+                        </CallExpression.Attributes>
+                        <ArgumentExpression
+                          Parameter="SafetyIncidentRate">
+                          <ChainExpression>
+                            <MemberExpression
+                              Member="ViewProjectDetails/Properties[SafetyIncidentRates]" />
+                            <MemberExpression
+                              Member="selectedItem" />
+                          </ChainExpression>
+                        </ArgumentExpression>
+                      </CallExpression>
+                    </ChainExpression>
+                  </ScreenExpressionTree>
+                </ControlPropertySource>
+                <ControlPropertySource
+                  Property="Microsoft.LightSwitch.MobileWeb:RootCommand/Properties[Icon]">
+                  <ScreenExpressionTree>
+                    <ChainExpression>
+                      <ConstantExpression
+                        Value="msls-edit"
+                        ResultType=":String" />
+                    </ChainExpression>
+                  </ScreenExpressionTree>
+                </ControlPropertySource>
+              </ContentItem.PropertySources>
+            </ContentItem>
+            <ContentItem.CommandItems>
+              <ContentItem
+                Name="btnAddSafetyIncidentRate"
+                Kind="Command">
+                <ContentItem.Attributes>
+                  <DisplayName
+                    Value="Add" />
+                </ContentItem.Attributes>
+                <ContentItem.PropertySources>
+                  <ControlPropertySource
+                    Property="Microsoft.LightSwitch.MobileWeb:RootControl/Properties[Tap]">
+                    <ScreenExpressionTree>
+                      <ChainExpression>
+                        <CallExpression
+                          Target="!module/Methods[showAddEditSafetyIncidentRateFromProject]">
+                          <CallExpression.Attributes>
+                            <AssociatedCollection
+                              Collection="ViewProjectDetails/Properties[SafetyIncidentRates]" />
+                            <CreateNewEntity
+                              TargetParameter="!module/Methods[showAddEditSafetyIncidentRateFromProject]/Parameters[SafetyIncidentRate]" />
+                          </CallExpression.Attributes>
+                        </CallExpression>
+                      </ChainExpression>
+                    </ScreenExpressionTree>
+                  </ControlPropertySource>
+                  <ControlPropertySource
+                    Property="Microsoft.LightSwitch.MobileWeb:RootCommand/Properties[Icon]">
+                    <ScreenExpressionTree>
+                      <ChainExpression>
+                        <ConstantExpression
+                          Value="msls-add"
+                          ResultType=":String" />
+                      </ChainExpression>
+                    </ScreenExpressionTree>
+                  </ControlPropertySource>
+                </ContentItem.PropertySources>
+              </ContentItem>
+            </ContentItem.CommandItems>
+          </ContentItem>
+          <ContentItem.PropertySources>
+            <ControlPropertySource
+              Property="Microsoft.LightSwitch.MobileWeb:RootControl/Properties[BrowseOnly]">
+              <ScreenExpressionTree>
+                <ChainExpression>
+                  <ConstantExpression
+                    Value="True"
+                    ResultType=":Boolean" />
+                </ChainExpression>
+              </ScreenExpressionTree>
+            </ControlPropertySource>
+          </ContentItem.PropertySources>
+        </ContentItem>
+        <ContentItem
+          Name="Popups"
+          Kind="Group"
+          View="Microsoft.LightSwitch.MobileWeb:DialogPages" />
+      </ContentItem>
+    </Screen.RootContentItem>
+    <Screen.Methods>
+      <ScreenMethod
+        Name="showTab">
+        <ScreenMethod.Attributes>
+          <DisplayMethodByDefault
+            Display="True" />
+          <Generated />
+        </ScreenMethod.Attributes>
+        <ScreenMethodParameter
+          Name="tabName"
+          ParameterType=":String" />
+      </ScreenMethod>
+      <ScreenMethod
+        Name="showDialog">
+        <ScreenMethod.Attributes>
+          <DisplayMethodByDefault
+            Display="True" />
+          <Generated />
+        </ScreenMethod.Attributes>
+        <ScreenMethodParameter
+          Name="dialogName"
+          ParameterType=":String" />
+      </ScreenMethod>
+      <ScreenMethod
+        Name="Delete" />
+    </Screen.Methods>
+    <Screen.Properties>
+      <ScreenProperty
+        Name="Project"
+        PropertyType="Project">
+        <ScreenProperty.Attributes>
+          <IsParameter />
+        </ScreenProperty.Attributes>
+      </ScreenProperty>
+      <ScreenCollectionProperty
+        Name="SafetyIncidentRates"
+        PageSize="15"
+        PropertyType="CollectionView$SafetyIncidentRate">
+        <ScreenCollectionProperty.Query>
+          <ScreenQueryDefinition
+            Name="SafetyIncidentRatesQuery"
+            ReturnType="SafetyIncidentRate*">
+            <ScreenQueryDefinition.FilterExpression>
+              <QueryFilterExpressionTree />
+            </ScreenQueryDefinition.FilterExpression>
+            <ScreenQueryDefinition.Source>
+              <QuerySourceExpressionTree>
+                <ChainExpression>
+                  <MemberExpression
+                    Member="ViewProjectDetails/Properties[Project]" />
+                  <MemberExpression
+                    Member="SafetyIncidentRates" />
+                </ChainExpression>
+              </QuerySourceExpressionTree>
+            </ScreenQueryDefinition.Source>
+            <ScreenQueryDefinition.SortCriteria>
+              <SortCriterion>
+                <ChainExpression>
+                  <MemberExpression
+                    Member="PeriodBeginDateTime" />
+                </ChainExpression>
+              </SortCriterion>
+            </ScreenQueryDefinition.SortCriteria>
+          </ScreenQueryDefinition>
+        </ScreenCollectionProperty.Query>
+        <ScreenExpressionTree>
+          <ChainExpression>
+            <CallExpression
+              Target="ViewProjectDetails/Properties[SafetyIncidentRates]/Query" />
+          </ChainExpression>
+        </ScreenExpressionTree>
+      </ScreenCollectionProperty>
+    </Screen.Properties>
+  </Screen>
+  <Application.Methods>
+    <ApplicationMethod
+      Name="showViewProjectDetails">
+      <ApplicationMethod.Attributes>
+        <ShowScreenMethod
+          TargetScreen="ViewProjectDetails" />
+      </ApplicationMethod.Attributes>
+      <ApplicationMethodParameter
+        Name="Project"
+        ParameterType="Project" />
+    </ApplicationMethod>
+  </Application.Methods>
+</Application>
